@@ -30,7 +30,7 @@ export function NavLink({
       className={[
         "relative inline-block py-1 text-[17px] font-bold uppercase tracking-wide",
         "transition-colors duration-200",
-        emphasized ? "text-white" : "text-[#aaaaaa]",
+        emphasized ? "text-white" : "text-nav",
         "hover:text-white focus-visible:text-white focus-visible:outline-none",
         hasMenu ? "group-hover:text-white group-focus-within:text-white" : "",
         // sliding underline

@@ -5,6 +5,8 @@
   --color-brand-navy: #071f45;
   --color-brand-gold: #f5b400;
   --color-brand-gold-hover: #e0a400;
+  /* primary nav link text — also used for dropdown borders + sub-link text */
+  --color-nav: #aaaaaa;
   --font-sans: Helvetica, sans-serif;
 }
 

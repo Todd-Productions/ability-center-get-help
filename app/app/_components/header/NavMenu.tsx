@@ -18,7 +18,7 @@ import { NavLink } from "./NavLink";
 
 // Shared visibility / transition behaviour for both panel types.
 const panel = [
-  "pointer-events-none invisible absolute z-50 opacity-0 translate-y-1",
+  "pointer-events-none invisible absolute z-50 opacity-0 translate-y-[1px]",
   "transition duration-200 ease-out",
   // invisible bridge across the gap between trigger and panel so the pointer
   // can travel down without the menu closing
@@ -50,14 +50,14 @@ export function NavMenu({ item }: { item: NavItem }) {
 
       {item.menu.type === "single" ? (
         <div
-          className={`${panel} left-0 top-full min-w-[240px] border border-white/10 bg-brand-navy py-2`}
+          className={`${panel} left-0 top-full min-w-[240px] bg-brand-navy py-2`}
         >
           <ul>
             {item.menu.items.map((leaf) => (
               <li key={leaf.href}>
                 <a
                   href={leaf.href}
-                  className="block px-4 py-2 text-sm text-white/70 transition-colors hover:bg-white/5 hover:text-white"
+                  className="block px-4 py-2 text-[17px] text-nav transition-colors hover:bg-white/5 hover:text-white"
                 >
                   {leaf.label}
                 </a>
@@ -67,7 +67,7 @@ export function NavMenu({ item }: { item: NavItem }) {
         </div>
       ) : (
         <div
-          className={`${panel} inset-x-0 top-full w-full border-t border-white/10 bg-brand-navy`}
+          className={`${panel} inset-x-0 top-full w-full border-t-[0.5px] border-[#444444] bg-brand-navy`}
         >
           <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-x-8 gap-y-10 px-6 py-10">
             {item.menu.columns.map((col) => (
@@ -75,12 +75,12 @@ export function NavMenu({ item }: { item: NavItem }) {
                 {col.headingHref ? (
                   <a
                     href={col.headingHref}
-                    className="text-sm font-bold uppercase tracking-wide text-white hover:underline"
+                    className="text-[16px] font-bold uppercase tracking-wide text-white hover:underline"
                   >
                     {col.heading}
                   </a>
                 ) : (
-                  <span className="text-sm font-bold uppercase tracking-wide text-white">
+                  <span className="text-[16px] font-bold uppercase tracking-wide text-white">
                     {col.heading}
                   </span>
                 )}
@@ -89,7 +89,7 @@ export function NavMenu({ item }: { item: NavItem }) {
                     <li key={leaf.href}>
                       <a
                         href={leaf.href}
-                        className="text-sm text-white/70 transition-colors hover:text-white"
+                        className="text-[17px] text-nav transition-colors hover:text-white"
                       >
                         {leaf.label}
                       </a>

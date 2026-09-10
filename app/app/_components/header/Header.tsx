@@ -1,12 +1,14 @@
 import { externalUrl } from "@/app/_lib/externalUrl";
-import { give, navItems, searchHref } from "./header.data";
+import { give, navItems } from "./header.data";
+import { MobileNav } from "./MobileNav";
 import { NavMenu } from "./NavMenu";
+import { SearchLink } from "./SearchLink";
 
 export function Header() {
   return (
     // `relative` so mega panels can anchor here and span the full viewport width
     <header className="relative z-30 bg-brand-navy/98 text-white">
-      <div className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-between py-9">
+      <div className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-between px-4 py-2 lg:py-9 lg:px-0">
         <a
           href={externalUrl("/")}
           aria-label="The Ability Center — home"
@@ -18,11 +20,11 @@ export function Header() {
             alt="The Ability Center"
             width={321}
             height={40}
-            className="h-10 w-[321px]"
+            className="h-6 w-[193px] lg:h-10 lg:w-[321px]"
           />
         </a>
 
-        <nav aria-label="Primary">
+        <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex flex-wrap items-center justify-end gap-x-7 mr-2">
             {navItems.map((item) => (
               <NavMenu key={item.label} item={item} />
@@ -36,28 +38,15 @@ export function Header() {
               </a>
             </li>
             <li>
-              <a
-                href={searchHref}
-                aria-label="Search"
-                className="ml-4 inline-flex items-center text-white/70 transition-colors duration-200 hover:text-white focus-visible:text-white focus-visible:outline-none"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  width={24}
-                  height={24}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                  strokeLinecap="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m20 20-3.8-3.8" />
-                </svg>
-              </a>
+              <SearchLink className="ml-4" />
             </li>
           </ul>
         </nav>
+
+        <div className="flex items-center gap-4 lg:hidden">
+          <SearchLink />
+          <MobileNav />
+        </div>
       </div>
     </header>
   );
