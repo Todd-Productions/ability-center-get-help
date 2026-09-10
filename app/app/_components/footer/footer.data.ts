@@ -39,12 +39,32 @@ export type SocialLink = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { label: "Twitter", href: "#", icon: "twitter" },
-  { label: "Facebook", href: "#", icon: "facebook" },
-  { label: "LinkedIn", href: "#", icon: "linkedin" },
-  { label: "YouTube", href: "#", icon: "youtube" },
-  { label: "Instagram", href: "#", icon: "instagram" },
-  { label: "TikTok", href: "#", icon: "tiktok" },
+  { label: "Twitter", href: "https://twitter.com/abilitycntr", icon: "twitter" },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/abilitycenter",
+    icon: "facebook",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/the-ability-center-of-greater-toledo/",
+    icon: "linkedin",
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/user/abilitycentertoledo",
+    icon: "youtube",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/abilitycenter/",
+    icon: "instagram",
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@theabilitycentertoledo",
+    icon: "tiktok",
+  },
 ];
 
 export type BadgeLink = {

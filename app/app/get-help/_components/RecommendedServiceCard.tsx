@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import clsx from "clsx";
 
 import Text from "@/app/_components/ui/Text";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/_components/ui/button";
 
 export interface RecommendedServiceCardProps {
   title: string;

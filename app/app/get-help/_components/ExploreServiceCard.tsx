@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import clsx from "clsx";
 
 import Text from "@/app/_components/ui/Text";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/app/_components/ui/checkbox";
 
 export interface ExploreServiceCardProps {
   title: string;

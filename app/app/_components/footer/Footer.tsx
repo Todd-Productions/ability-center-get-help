@@ -104,7 +104,7 @@ export function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="uppercase tracking-wide hover:text-white"
+                className="uppercase tracking-wide hover:text-white button-link"
               >
                 {link.label}
               </a>
