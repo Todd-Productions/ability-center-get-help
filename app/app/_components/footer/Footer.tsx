@@ -1,4 +1,3 @@
-import { TranslateWidget } from "./TranslateWidget";
 import {
   badges,
   contact,
@@ -72,11 +71,6 @@ export function Footer() {
             >
               CONTACT US
             </a>
-
-            {/* <div>
-              <h3 className="text-xl font-bold">Translate This Site</h3>
-              <TranslateWidget />
-            </div> */}
           </div>
         </div>
 

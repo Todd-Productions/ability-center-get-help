@@ -5,8 +5,8 @@ import { NavMenu } from "./NavMenu";
 export function Header() {
   return (
     // `relative` so mega panels can anchor here and span the full viewport width
-    <header className="relative z-30 bg-brand-navy text-white">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-4 px-6 py-4">
+    <header className="relative z-30 bg-brand-navy/98 text-white">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-4 px-6 py-8">
         <a
           href={externalUrl("/")}
           aria-label="The Ability Center — home"
@@ -16,9 +16,9 @@ export function Header() {
           <img
             src="/header/aclogo.png"
             alt="The Ability Center"
-            width={1157}
-            height={144}
-            className="h-10 w-auto"
+            width={321}
+            height={40}
+            className="h-10 w-[321px]"
           />
         </a>
 
