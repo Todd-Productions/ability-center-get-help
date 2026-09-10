@@ -107,7 +107,9 @@ export const navItems: NavItem[] = [
   { label: "Events", href: ext("/events") },
   { label: "Apply for a Dog", href: ext("/apply-for-a-dog") },
   { label: "Contact", href: ext("/contact-us") },
-  { label: "Give", href: ext("/give"), emphasized: true },
 ];
+
+/** Standalone call-to-action, rendered as a button beside the search icon. */
+export const give = { label: "Give", href: ext("/give") };
 
 export const searchHref = ext("/search");
