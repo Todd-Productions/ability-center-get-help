@@ -51,24 +51,29 @@ export type BadgeLink = {
   label: string;
   href: string;
   src: string;
+  /** intrinsic pixel size, for aspect-ratio reservation */
   width: number;
   height: number;
+  /** rendered max width in px */
+  displayWidth: number;
 };
 
 export const badges: BadgeLink[] = [
   {
     label: "BBB Torch Awards for Ethics 2023 Winner",
     href: "#",
-    src: "/footer/bbb-torch-award.svg",
-    width: 340,
-    height: 300,
+    src: "/footer/footer-torch-awards.jpg",
+    width: 339,
+    height: 284,
+    displayWidth: 339,
   },
   {
     label: "Candid Platinum Transparency 2026",
     href: "#",
-    src: "/footer/candid-seal.svg",
-    width: 150,
-    height: 180,
+    src: "/footer/footer-platinum-transparency.svg",
+    width: 108,
+    height: 108,
+    displayWidth: 108,
   },
 ];
 

@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Brand tokens — shared site chrome (header, footer, …) */
+@theme {
+  --color-brand-navy: #071f45;
+  --color-brand-gold: #f5b400;
+  --color-brand-gold-hover: #e0a400;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
