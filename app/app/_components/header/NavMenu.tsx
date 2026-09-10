@@ -43,7 +43,13 @@ export function NavMenu({ item }: { item: NavItem }) {
   return (
     // single → anchor the panel to this <li>; mega → stay static so its panel
     // anchors to <header> and spans the full viewport width.
-    <li className={isMega ? "group" : "group relative"}>
+    //
+    // `lg:py-9 lg:-my-9` grows the hover target to fill the header's vertical
+    // padding (Header uses `lg:py-9`) without shifting layout, so the pointer
+    // can travel from the trigger down to the panel without a dead gap.
+    <li
+      className={`group lg:-my-9 lg:py-9 ${isMega ? "" : "relative"}`}
+    >
       <NavLink href={item.href} emphasized={item.emphasized} hasMenu>
         {item.label}
       </NavLink>
@@ -54,10 +60,13 @@ export function NavMenu({ item }: { item: NavItem }) {
         >
           <ul>
             {item.menu.items.map((leaf) => (
-              <li key={leaf.href}>
+              <li key={leaf.label}>
                 <a
                   href={leaf.href}
-                  className="block px-4 py-2 text-[17px] text-nav transition-colors hover:bg-white/5 hover:text-white"
+                  {...(leaf.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="button-link block px-4 py-2 text-[17px] text-nav transition-colors hover:bg-white/5 hover:text-white"
                 >
                   {leaf.label}
                 </a>
@@ -69,27 +78,30 @@ export function NavMenu({ item }: { item: NavItem }) {
         <div
           className={`${panel} inset-x-0 top-full w-full border-t-[0.5px] border-[#444444] bg-brand-navy`}
         >
-          <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-x-8 gap-y-10 px-6 py-10">
+          <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-x-8 gap-y-10 px-6 py-6">
             {item.menu.columns.map((col) => (
-              <div key={col.heading} className="flex min-w-[160px] flex-col gap-3">
+              <div key={col.heading} className="flex min-w-[160px] flex-col gap-x-3">
                 {col.headingHref ? (
                   <a
                     href={col.headingHref}
-                    className="text-[16px] font-bold uppercase tracking-wide text-white hover:underline"
+                    className="button-link text-[16px] font-bold tracking-wide text-white"
                   >
                     {col.heading}
                   </a>
                 ) : (
-                  <span className="text-[16px] font-bold uppercase tracking-wide text-white">
+                  <span className="text-[16px] font-bold tracking-wide text-white">
                     {col.heading}
                   </span>
                 )}
                 <ul className="flex flex-col gap-2">
                   {col.items.map((leaf) => (
-                    <li key={leaf.href}>
+                    <li key={leaf.label}>
                       <a
                         href={leaf.href}
-                        className="text-[17px] text-nav transition-colors hover:text-white"
+                        {...(leaf.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                        className="button-link -mx-2 block px-2 py-1 text-[17px] text-nav transition-colors hover:bg-brand-purple hover:text-white"
                       >
                         {leaf.label}
                       </a>

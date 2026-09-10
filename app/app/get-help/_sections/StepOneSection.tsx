@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Phone } from "lucide-react";
 
+import { externalUrl } from "@/app/_lib/externalUrl";
 import ServiceTypeSelector, {
   defaultOptions,
 } from "@/app/get-help/_components/ServiceTypeSelector";
@@ -32,7 +33,7 @@ const StepOneSection: FC<StepOneSectionProps> = ({ onNextStep }) => {
       </Text>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <ButtonLink
-          href="#"
+          href={externalUrl("/contact-us/")}
           buttonColor="blue"
           textColor="white"
           showIcon={false}
@@ -40,7 +41,7 @@ const StepOneSection: FC<StepOneSectionProps> = ({ onNextStep }) => {
           Connect with a Navigator Now
         </ButtonLink>
         <ButtonLink
-          href="#"
+          href={externalUrl("/contact-us/")}
           buttonColor="orange"
           textColor="white"
           icon={Phone}

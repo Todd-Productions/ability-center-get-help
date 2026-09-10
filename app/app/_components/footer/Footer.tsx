@@ -58,7 +58,7 @@ export function Footer() {
             <div className="text-[26px]">
               <p>
                 Phone:{" "}
-                <a href={telHref} className="hover:underline">
+                <a href={telHref} className="hover:underline button-link">
                   {contact.phone}
                 </a>
               </p>
@@ -67,7 +67,7 @@ export function Footer() {
 
             <a
               href={contact.ctaHref}
-              className="inline-block rounded bg-brand-gold px-6 py-5 text-[18px] tracking-wide text-brand-navy transition-colors hover:bg-brand-gold-hover"
+              className="inline-block rounded bg-brand-gold px-6 py-5 text-[18px] tracking-wide text-brand-navy transition-colors hover:bg-brand-gold-hover button-link"
             >
               CONTACT US
             </a>

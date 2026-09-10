@@ -2,6 +2,7 @@ import React from "react";
 
 import { CircleCheck, Clock } from "lucide-react";
 
+import { externalUrl } from "@/app/_lib/externalUrl";
 import Card from "@/app/_components/ui/Card";
 import Text from "@/app/_components/ui/Text";
 import ButtonLink from "@/app/_components/ui/ButtonLink";
@@ -15,7 +16,7 @@ const StepperSuccess = () => {
           Thank you for reaching out
         </Text>
         <Text>
-          Your request has been successfully submitted. We've sent a
+          Your request has been successfully submitted. We&apos;ve sent a
           confirmation to the email address you provided.
         </Text>
 
@@ -34,7 +35,7 @@ const StepperSuccess = () => {
             </div>
           </div>
         </div>
-        <ButtonLink href="/" showIcon={false} buttonColor="gold">
+        <ButtonLink href={externalUrl("/")} showIcon={false} buttonColor="gold">
           Return to Homepage
         </ButtonLink>
       </div>

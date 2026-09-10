@@ -8,6 +8,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 
+import { externalUrl } from "@/app/_lib/externalUrl";
 import StepOneCard, { IStepOneCard } from "./StepOneCard";
 import Heading from "@/app/_components/ui/Heading";
 import Content from "@/app/_components/ui/Content";
@@ -69,7 +70,7 @@ const ServiceTypeSelector: FC<ServiceTypeSelectorProps> = ({
       <Content>
         Begin by telling us who you are so we can guide you to the right
         resources. If you prefer, you can connect directly with one of our{" "}
-        <TextLink href="/navigators">Navigators</TextLink> now.
+        <TextLink href={externalUrl("/navigators/")}>Navigators</TextLink> now.
       </Content>
     </div>
     <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

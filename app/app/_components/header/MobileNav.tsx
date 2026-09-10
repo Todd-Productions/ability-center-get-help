@@ -58,11 +58,14 @@ function ColumnAccordion({
       {open && (
         <ul className="pb-2">
           {column.items.map((leaf) => (
-            <li key={leaf.href}>
+            <li key={leaf.label}>
               <a
                 href={leaf.href}
                 onClick={onNavigate}
-                className="block py-2 pl-8 text-[16px]"
+                {...(leaf.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="button-link block py-2 pl-8 text-[16px]"
               >
                 {leaf.label}
               </a>
@@ -89,7 +92,7 @@ function ItemAccordion({
       <a
         href={item.href}
         onClick={onNavigate}
-        className="block border-b border-white/10 py-4 text-[30px]"
+        className="button-link block border-b border-white/10 py-4 text-[30px]"
       >
         {item.label}
       </a>
@@ -113,10 +116,13 @@ function ItemAccordion({
           {item.menu.type === "single"
             ? item.menu.items.map((leaf) => (
                 <a
-                  key={leaf.href}
+                  key={leaf.label}
                   href={leaf.href}
                   onClick={onNavigate}
-                  className="block py-2 pl-4 text-[16px]"
+                  {...(leaf.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="button-link block py-2 pl-4 text-[16px]"
                 >
                   {leaf.label}
                 </a>
