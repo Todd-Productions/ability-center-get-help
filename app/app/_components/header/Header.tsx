@@ -32,7 +32,7 @@ export function Header() {
             <li>
               <a
                 href={give.href}
-                className="inline-block bg-brand-navy px-5 py-2 text-[17px] font-bold uppercase tracking-wide text-white"
+                className="inline-block bg-brand-navy px-5 py-2 text-[17px] font-bold uppercase tracking-wide text-white button-link"
               >
                 {give.label}
               </a>

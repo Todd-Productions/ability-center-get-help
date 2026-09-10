@@ -101,10 +101,7 @@ const StepTwoSection: FC<StepTwoSectionProps> = ({
       </ul>
 
       <div className="!mt-12 flex gap-4 justify-end">
-        <Button
-          onClick={onBackStep}
-          className="bg-bg-gray text-black outline-none"
-        >
+        <Button onClick={onBackStep} variant="secondary">
           Back
         </Button>
         <Button

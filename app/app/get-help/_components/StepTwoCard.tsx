@@ -20,12 +20,12 @@ const StepTwoCard: FC<StepTwoCardProps> = (props) => {
   const { title, description, selected, Icon, onClick } = props;
   return (
     <div
-      className={clsx("p-6 border rounded-sm transition-all bg-white h-full", {
+      className={clsx("py-6 px-4 border rounded-sm transition-all bg-white h-full", {
         "border-brand-sky-blue bg-bg-gray": selected,
         "hover:border-gray-400": !selected,
       })}
     >
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
         <div className="flex items-start gap-4 flex-1">
           <div className="mt-1 shrink-0">
             <Icon size={22} className="text-brand-navy" />
@@ -40,6 +40,8 @@ const StepTwoCard: FC<StepTwoCardProps> = (props) => {
           size="sm"
           onClick={onClick}
           variant={selected ? "blue" : "outline"}
+          // beat the `font-bold` in buttonVariants' base (cn has no tw-merge)
+          className="!font-medium"
         >
           {selected ? "Selected" : "Select"}
         </Button>

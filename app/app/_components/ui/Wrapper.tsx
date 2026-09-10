@@ -4,16 +4,19 @@ import { cn } from "@/app/_lib/utils";
 
 interface WrapperProps {
   children: ReactNode;
-  /** optional max content width in px; unconstrained when omitted */
+  width?: number;
   maxWidth?: number;
   className?: string;
 }
 
-const Wrapper = ({ children, maxWidth, className }: WrapperProps) => {
+const Wrapper = ({ children, maxWidth, width, className }: WrapperProps) => {
   return (
     <div
       className={cn("mx-auto w-full", className)}
-      style={maxWidth ? { maxWidth: `${maxWidth}px` } : undefined}
+      style={{
+        width: `${width ? width : "95"}%`,
+        maxWidth: `${maxWidth ?? 1320}px`,
+      }}
     >
       {children}
     </div>

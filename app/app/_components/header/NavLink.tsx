@@ -28,14 +28,14 @@ export function NavLink({
       href={href}
       aria-haspopup={hasMenu || undefined}
       className={[
-        "relative inline-block py-1 text-[17px] font-bold uppercase tracking-wide",
+        "relative inline-block py-0 text-[17px] font-bold uppercase tracking-wide button-link",
         "transition-colors duration-200",
         emphasized ? "text-white" : "text-nav",
         "hover:text-white focus-visible:text-white focus-visible:outline-none",
         hasMenu ? "group-hover:text-white group-focus-within:text-white" : "",
         // sliding underline
         "after:pointer-events-none after:absolute after:inset-x-0 after:-bottom-0.5",
-        "after:h-px after:origin-left after:scale-x-0 after:bg-current after:content-['']",
+        "after:h-[2px] after:origin-left after:scale-x-0 after:bg-current after:content-['']",
         "after:transition-transform after:duration-300 after:ease-out",
         "hover:after:scale-x-100 focus-visible:after:scale-x-100",
         hasMenu

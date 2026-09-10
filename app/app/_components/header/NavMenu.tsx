@@ -31,7 +31,7 @@ export function NavMenu({ item }: { item: NavItem }) {
   if (!item.menu) {
     return (
       <li>
-        <NavLink href={item.href} emphasized={item.emphasized}>
+        <NavLink href={item.href} emphasized={item.emphasized} >
           {item.label}
         </NavLink>
       </li>
