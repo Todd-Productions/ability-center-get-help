@@ -1,7 +1,9 @@
-import { FC } from "react";
+import { FC, useRef, useState, useTransition } from "react";
 import { useFormContext } from "react-hook-form";
 import { User, Users2, ArrowRight } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
 
+import { submitGetHelpRequest } from "@/app/_lib/actions";
 import { GetHelpFormData } from "./GetHelpStepper";
 import Input from "@/app/_components/ui/Input";
 import { Button } from "@/app/_components/ui/button";
@@ -29,8 +31,14 @@ const StepThreeSection: FC<StepThreeSectionProps> = (props) => {
     handleSubmit,
     watch,
     setValue,
+    getValues,
     formState: { errors },
   } = useFormContext<GetHelpFormData>();
+
+  const [isPending, startTransition] = useTransition();
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const stepOneValue = watch("stepOne");
   const stepTwoValues = watch("stepTwo") || [];
@@ -56,8 +64,22 @@ const StepThreeSection: FC<StepThreeSectionProps> = (props) => {
   };
 
   const onSubmit = () => {
-    // Form data is already saved in the form context
-    onNextStep();
+    if (!recaptchaToken) {
+      setSubmitError("Please complete the reCAPTCHA.");
+      return;
+    }
+
+    setSubmitError(null);
+    startTransition(async () => {
+      const result = await submitGetHelpRequest(getValues(), recaptchaToken);
+      if (result.success) {
+        onNextStep();
+      } else {
+        setSubmitError(result.error);
+        recaptchaRef.current?.reset();
+        setRecaptchaToken(null);
+      }
+    });
   };
 
   return (
@@ -201,7 +223,7 @@ const StepThreeSection: FC<StepThreeSectionProps> = (props) => {
             {/* County */}
             <div>
               <Label htmlFor="county" className="text-sm font-medium mb-3 block">
-                County
+                County (Optional)
               </Label>
               <Select
                 onValueChange={(value) =>
@@ -216,17 +238,7 @@ const StepThreeSection: FC<StepThreeSectionProps> = (props) => {
                   <SelectItem value="wood">Wood County</SelectItem>
                 </SelectContent>
               </Select>
-              <input
-                type="hidden"
-                {...register("stepThree.county", {
-                  required: "County is required",
-                })}
-              />
-              {errors.stepThree?.county && (
-                <span className="text-red-600 text-sm">
-                  {errors.stepThree.county.message}
-                </span>
-              )}
+              <input type="hidden" {...register("stepThree.county")} />
             </div>
 
             {/* Preferred Contact Method - Radio Group */}
@@ -312,10 +324,23 @@ const StepThreeSection: FC<StepThreeSectionProps> = (props) => {
               />
             </div>
 
+            {/* reCAPTCHA */}
+            <div>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_PUBLIC as string}
+                onChange={(token) => setRecaptchaToken(token)}
+                onExpired={() => setRecaptchaToken(null)}
+              />
+            </div>
+
             {/* Submit Button */}
             <div className="pt-4 !mb-4">
-              <Button type="submit" className="w-full group">
-                Send My Request
+              {submitError && (
+                <p className="text-red-600 text-sm !mb-3">{submitError}</p>
+              )}
+              <Button type="submit" className="w-full group" disabled={isPending}>
+                {isPending ? "Sending..." : "Send My Request"}
                 <ArrowRight className="!ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>

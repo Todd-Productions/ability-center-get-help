@@ -82,7 +82,7 @@ export interface GetHelpFormData {
     fullName: string;
     email: string;
     phoneNumber: string;
-    county: string;
+    county?: string;
     preferredContactMethod: "email" | "phone";
     bestTimeToContact: string;
     additionalInfo?: string;
