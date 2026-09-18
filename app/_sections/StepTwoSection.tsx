@@ -1,19 +1,19 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useFormContext } from "react-hook-form";
 
 import {
-  House,
+  Briefcase,
   GraduationCap,
   HeartHandshake,
-  Briefcase,
-  Users,
+  House,
   Scale,
+  Users,
 } from "lucide-react";
 
-import StepTwoCard from "../_components/StepTwoCard";
 import { Button } from "@/app/_components/ui/button";
-import { GetHelpFormData } from "./GetHelpStepper";
 import SectionIntro from "@/app/_components/ui/SectionIntro";
+import StepTwoCard from "../_components/StepTwoCard";
+import { GetHelpFormData } from "./GetHelpStepper";
 
 export interface StepTwoSectionProps {
   onNextStep: () => void;

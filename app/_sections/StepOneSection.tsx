@@ -1,15 +1,15 @@
-import React, { FC } from "react";
-import { useFormContext } from "react-hook-form";
 import Link from "next/link";
+import { FC } from "react";
+import { useFormContext } from "react-hook-form";
 
 import { Phone } from "lucide-react";
 
-import { externalUrl } from "@/app/_lib/externalUrl";
 import ServiceTypeSelector, {
   defaultOptions,
-} from "@/app/get-help/_components/ServiceTypeSelector";
-import Text from "@/app/_components/ui/Text";
+} from "@/app/_components/ServiceTypeSelector";
 import ButtonLink from "@/app/_components/ui/ButtonLink";
+import Text from "@/app/_components/ui/Text";
+import { externalUrl } from "@/app/_lib/externalUrl";
 import { GetHelpFormData } from "./GetHelpStepper";
 
 export interface StepOneSectionProps {

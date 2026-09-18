@@ -1,25 +1,25 @@
 "use client";
 
-import { FC, ForwardRefExoticComponent, RefAttributes } from "react";
-import { LucideProps } from "lucide-react";
-import { setup } from "xstate";
 import { useMachine } from "@xstate/react";
-import { useForm, FormProvider } from "react-hook-form";
+import { LucideProps } from "lucide-react";
+import { FC, ForwardRefExoticComponent, RefAttributes } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { setup } from "xstate";
 
-import StepOneSection from "./StepOneSection";
-import StepTwoSection from "./StepTwoSection";
-import StepThreeSection from "./StepThreeSection";
-import StepFourSection from "./StepFourSection";
-import ProgressStepper from "../_components/ProgressStepper";
 import Section from "@/app/_components/ui/Section";
+import ProgressStepper from "../_components/ProgressStepper";
+import StepFourSection from "./StepFourSection";
+import StepOneSection from "./StepOneSection";
+import StepThreeSection from "./StepThreeSection";
+import StepTwoSection from "./StepTwoSection";
 
 import {
-  Baby,
   Accessibility,
+  Baby,
   Briefcase,
   GraduationCap,
-  Users,
   HelpCircle,
+  Users,
 } from "lucide-react";
 
 export type IStepOneCard = {
